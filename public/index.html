@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html class="box-border" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat Message</title>
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+  <body class="bg-slate-900 m-0 pb-12 h-[90lvh] overflow-hidden">
+    <h1 class="text-white bg-slate-950 m-0 p-4 text-2xl">Room 1</h1>
+    <div class="flex flex-[1] justify-between h-full">
+      <div class="bg-slate-800 m-0 w-full h-[100%] overflow-y-auto">
+        <ul id="messages" class="list-none m-0 p-0"></ul>
+        <form
+          class="bg-black p-2 fixed bottom-0 left-0 flex flex-row w-full max-h-full"
+          id="form"
+          action=""
+        >
+          <textarea
+            class="block bg-slate-800 border-none p-2 pl-4 flex-grow rounded-md mt-0.5 mb-1 resize-none overflow-auto box-border h-10 text-white text-base focus:outline-none"
+            id="input"
+          ></textarea>
+          <button
+            class="bg-none border-black/50 border-solid border-2 pl-4 pr-4 pt-2 pb-2 ml-3 rounded-sm text-white cursor-pointer font-bold"
+          >
+            Send
+          </button>
+        </form>
+      </div>
+      <div class="bg-slate-950 text-white pl-12 pr-12 w-1/4">
+        <h1 class="text-2xl mb-4">People</h1>
+        <ul>
+          <li>Person 1</li>
+          <li>Person 2</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+  <script src="frontend.js"></script>
+</html>
