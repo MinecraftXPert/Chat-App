@@ -12,6 +12,7 @@ form.addEventListener("submit", (e) => {
   }
 });
 
+
 socket.on("chat message", (message) => {
   const item = document.createElement("li");
   item.textContent = message;
@@ -22,4 +23,14 @@ socket.on("chat message", (message) => {
   item.scrollIntoView({ behavior: "smooth", block: "end" });
 });
 
+// Function to resize textarea based on content
+function resizeTextarea() {
+  const textarea = document.querySelector('textarea');
+  textarea.style.height = '40px'; 
+  textarea.style.height = textarea.scrollHeight + 'px'; 
+}
 
+document.querySelector('textarea').addEventListener('input', function() {
+  resizeTextarea(); 
+});
+resizeTextarea();
