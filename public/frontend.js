@@ -9,28 +9,28 @@ form.addEventListener("submit", (e) => {
   if (input.value) {
     socket.emit("chat message", input.value);
     input.value = "";
+    resizeTextarea();
   }
 });
-
 
 socket.on("chat message", (message) => {
   const item = document.createElement("li");
   item.textContent = message;
   item.classList.add("p-5", "text-white", "hover:bg-slate-700", "mb-4");
   messages.appendChild(item);
-  
+
   // Scroll the newly added message into view
   item.scrollIntoView({ behavior: "smooth", block: "end" });
 });
 
+
 // Function to resize textarea based on content
 function resizeTextarea() {
-  const textarea = document.querySelector('textarea');
-  textarea.style.height = '40px'; 
-  textarea.style.height = textarea.scrollHeight + 'px'; 
+  const textarea = document.querySelector("textarea");
+  textarea.style.height = "40px";
+  textarea.style.height = textarea.scrollHeight + "px";
 }
 
-document.querySelector('textarea').addEventListener('input', function() {
-  resizeTextarea(); 
+document.querySelector("textarea").addEventListener("input", function () {
+  resizeTextarea();
 });
-resizeTextarea();

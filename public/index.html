@@ -9,8 +9,9 @@
   <body class="bg-slate-900 m-0 pb-12 h-[90lvh] overflow-hidden">
     <h1 class="text-white bg-slate-950 m-0 p-4 text-2xl">Room 1</h1>
     <div class="flex flex-[1] justify-between h-full">
-      <div class="bg-slate-800 m-0 w-full h-[100%] overflow-y-auto">
-        <ul id="messages" class="list-none m-0 p-0"></ul>
+      <!-- Message container -->
+      <div class="bg-slate-800 m-0 w-full h-[100%] overflow-y-auto break-words">
+        <ul id="messages" class="list-none m-0 p-0 overflow-wrap"></ul>
         <form
           class="bg-black p-2 fixed bottom-0 left-0 flex flex-row w-full max-h-full"
           id="form"
