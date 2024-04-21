@@ -13,6 +13,17 @@ form.addEventListener("submit", (e) => {
   }
 });
 
+document.querySelector("textarea").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    if (input.value) {
+      socket.emit("chat message", input.value);
+      input.value = "";
+      resizeTextarea();
+    }
+  }
+});
+
 socket.on("chat message", (message) => {
   const item = document.createElement("li");
   item.textContent = message;
@@ -22,7 +33,6 @@ socket.on("chat message", (message) => {
   // Scroll the newly added message into view
   item.scrollIntoView({ behavior: "smooth", block: "end" });
 });
-
 
 // Function to resize textarea based on content
 function resizeTextarea() {
